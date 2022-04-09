@@ -1,10 +1,12 @@
+import { ChakraProvider } from "@chakra-ui/react";
+
 import Components from "./Components";
 
 const App = () => {
   return (
-    <div>
+    <ChakraProvider>
       <Components />
-    </div>
+    </ChakraProvider>
   );
 };
 
