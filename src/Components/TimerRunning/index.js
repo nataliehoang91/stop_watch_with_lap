@@ -8,7 +8,7 @@ import Timer from "../shared/Timer";
 const BaseTimerRunning = ({ pauseTimer }) => {
   return (
     <VStack alignItems="flex-start" spacing="16">
-      <Status status="Initial" color="green.300" />
+      <Status status="Running..." color="blue.300" />
       <Box>
         <Timer time="0" />
         <Button bgColor="red.500" color="white" mr="4" onClick={pauseTimer}>
