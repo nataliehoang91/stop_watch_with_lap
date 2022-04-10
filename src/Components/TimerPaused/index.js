@@ -11,8 +11,8 @@ const BaseTimerPaused = () => {
       <Status status="Initial" color="green.300" />
       <Box>
         <Timer time="0" />
-        <Button bgColor="red.500" color="white" mr="4">
-          Stop
+        <Button bgColor="blue.500" color="white" mr="4">
+          Resume
         </Button>
         <Button bgColor="teal.400" color="white">
           Lap

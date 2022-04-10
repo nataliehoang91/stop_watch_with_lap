@@ -8,7 +8,7 @@ import TimerPaused from "./TimerPaused";
 
 const BaseApp = () => {
   const [isStarted, setIsStarted] = useState(false);
-  const [isPaused, setIsPaused] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   const [time, setTime] = useState(0);
 
   // funcitons
