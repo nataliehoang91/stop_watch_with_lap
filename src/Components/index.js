@@ -2,27 +2,27 @@ import React, { useState, useEffect } from "react";
 
 import { Container, Box, VStack, Text, Button, HStack } from "@chakra-ui/react";
 
-import Status from "./Status";
-import Timer from "./Timer";
-import TimerButtons from "./TimerButtons";
-import Laps from "./Laps";
+import TimerInitial from "./TimerInitial";
+import TimerRunning from "./TimerRunning";
+import TimerPaused from "./TimerPaused";
 
 const BaseApp = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
 
   // funcitons
-  const getStatus = () => {};
 
-  const pauseTimer = () => {};
+  const pauseTimer = () => {
+    setIsPaused(true);
+  };
 
   const startTimer = () => {
-    setIsActive(true);
+    setIsStarted(true);
   };
 
   const resetTimer = () => {
-    setIsActive(false);
+    setIsStarted(false);
     setTime(0);
   };
 
@@ -35,19 +35,9 @@ const BaseApp = () => {
       maxWidth="800px"
       minHeight="100vh"
     >
-      <VStack alignItems="flex-start" spacing="16">
-        <Status />
-        <Box>
-          <Timer time={time} />
-          <TimerButtons
-            isActive={isActive}
-            isPaused={isPaused}
-            startTimer={startTimer}
-            resetTimer={resetTimer}
-          />
-        </Box>
-        <Laps />
-      </VStack>
+      {!isStarted && <TimerInitial startTimer={startTimer} />}
+      {isStarted && isPaused && <TimerPaused resetTimer={resetTimer} />}
+      {isStarted && !isPaused && <TimerRunning pauseTimer={pauseTimer} />}
     </Container>
   );
 };
