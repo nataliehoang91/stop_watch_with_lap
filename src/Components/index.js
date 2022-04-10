@@ -21,6 +21,10 @@ const BaseApp = () => {
     setIsStarted(true);
   };
 
+  const resumeTimer = () => {
+    setIsPaused(false);
+  };
+
   const resetTimer = () => {
     setIsStarted(false);
     setTime(0);
@@ -36,7 +40,9 @@ const BaseApp = () => {
       minHeight="100vh"
     >
       {!isStarted && <TimerInitial startTimer={startTimer} />}
-      {isStarted && isPaused && <TimerPaused resetTimer={resetTimer} />}
+      {isStarted && isPaused && (
+        <TimerPaused resetTimer={resetTimer} resumeTimer={resumeTimer} />
+      )}
       {isStarted && !isPaused && <TimerRunning pauseTimer={pauseTimer} />}
     </Container>
   );

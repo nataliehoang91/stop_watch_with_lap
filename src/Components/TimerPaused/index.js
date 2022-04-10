@@ -5,17 +5,17 @@ import { Box, VStack, Button } from "@chakra-ui/react";
 import Status from "../shared/Status";
 import Timer from "../shared/Timer";
 
-const BaseTimerPaused = () => {
+const BaseTimerPaused = ({ resumeTimer, resetTimer }) => {
   return (
     <VStack alignItems="flex-start" spacing="16">
       <Status status="Initial" color="green.300" />
       <Box>
         <Timer time="0" />
-        <Button bgColor="blue.500" color="white" mr="4">
+        <Button bgColor="blue.500" color="white" mr="4" onClick={resumeTimer}>
           Resume
         </Button>
-        <Button bgColor="teal.400" color="white">
-          Lap
+        <Button bgColor="teal.400" color="white" onClick={resetTimer}>
+          Reset
         </Button>
       </Box>
     </VStack>
