@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import useNow from './shared/hooks/useNow';
+import React, { useState } from "react";
+import useNow from "./shared/hooks/useNow";
 
-import { Container, Box, VStack, Text, Button, HStack } from '@chakra-ui/react';
+import { Container, Box, VStack, Text, Button, HStack } from "@chakra-ui/react";
 
-import TimerInitial from './TimerInitial';
-import TimerRunning from './TimerRunning';
-import TimerPaused from './TimerPaused';
+import TimerInitial from "./TimerInitial";
+import TimerRunning from "./TimerRunning";
+import TimerPaused from "./TimerPaused";
+import LapData from "./Laps";
+import { addToArray } from "../utils";
 
 const BaseApp = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(0);
+  const [laps, bookmarkLap] = useState([]);
   const currentTime = useNow();
   const [startTime, setStartTime] = useState(currentTime);
+  const time = useNow() - startTime;
 
   // funcitons
   const startTimer = () => {
@@ -34,7 +37,12 @@ const BaseApp = () => {
     setStartTime(currentTime);
     setIsStarted(false);
     setIsPaused(false);
-    setTime(0);
+    bookmarkLap([]);
+  };
+
+  const bookmarkTime = () => {
+    const bmLaps = addToArray(time, laps);
+    bookmarkLap(bmLaps);
   };
 
   return (
@@ -55,8 +63,13 @@ const BaseApp = () => {
         />
       )}
       {isStarted && !isPaused && (
-        <TimerRunning startTime={startTime} pauseTimer={pauseTimer} />
+        <TimerRunning
+          time={time}
+          pauseTimer={pauseTimer}
+          bookmarkTime={bookmarkTime}
+        />
       )}
+      {laps.length > 0 && <LapData laps={laps} />}
     </Container>
   );
 };

@@ -9,7 +9,7 @@ const BaseTimer = ({ time }) => {
   const ms = String(time % 1000).padStart(3, "0");
 
   return (
-    <Box pb="16">
+    <Box>
       <chakra.span fontSize="4xl">{hh}:</chakra.span>
       <chakra.span fontSize="4xl">{mm}:</chakra.span>
       <chakra.span fontSize="4xl">{ss}:</chakra.span>
