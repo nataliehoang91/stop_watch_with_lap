@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useNow from "./shared/hooks/useNow";
 
-import { Container, Box, VStack, Text, Button, HStack } from "@chakra-ui/react";
+import { Container, VStack } from "@chakra-ui/react";
 
 import TimerInitial from "./TimerInitial";
 import TimerRunning from "./TimerRunning";
@@ -53,23 +53,27 @@ const BaseApp = () => {
       px="16"
       maxWidth="800px"
       minHeight="100vh"
+      textAlign="center"
+      bgColor="gray.800"
     >
-      {!isStarted && <TimerInitial startTimer={startTimer} />}
-      {isStarted && isPaused && (
-        <TimerPaused
-          time={startTime}
-          resetTimer={resetTimer}
-          resumeTimer={resumeTimer}
-        />
-      )}
-      {isStarted && !isPaused && (
-        <TimerRunning
-          time={time}
-          pauseTimer={pauseTimer}
-          bookmarkTime={bookmarkTime}
-        />
-      )}
-      {laps.length > 0 && <LapData laps={laps} />}
+      <VStack>
+        {!isStarted && <TimerInitial startTimer={startTimer} />}
+        {isStarted && isPaused && (
+          <TimerPaused
+            time={startTime}
+            resetTimer={resetTimer}
+            resumeTimer={resumeTimer}
+          />
+        )}
+        {isStarted && !isPaused && (
+          <TimerRunning
+            time={time}
+            pauseTimer={pauseTimer}
+            bookmarkTime={bookmarkTime}
+          />
+        )}
+        {laps.length > 0 && <LapData laps={laps} />}
+      </VStack>
     </Container>
   );
 };

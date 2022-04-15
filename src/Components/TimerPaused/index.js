@@ -7,15 +7,28 @@ import Timer from "../shared/Timer";
 
 const BaseTimerPaused = ({ time, resumeTimer, resetTimer }) => {
   return (
-    <VStack alignItems="flex-start" spacing="16">
+    <VStack alignItems="center" spacing="12">
       <Status status="Stopped" color="red.300" />
       <Box>
         <Timer time={time} />
-        <Box mt="16">
-          <Button bgColor="blue.500" color="white" mr="4" onClick={resumeTimer}>
+        <Box mt="12">
+          <Button
+            variant="outline"
+            borderColor="yellow.300"
+            color="yellow.100"
+            px="8"
+            mr="8"
+            onClick={resumeTimer}
+          >
             Resume
           </Button>
-          <Button bgColor="teal.400" color="white" onClick={resetTimer}>
+          <Button
+            variant="outline"
+            borderColor="green.500"
+            color="green.300"
+            px="8"
+            onClick={resetTimer}
+          >
             Reset
           </Button>
         </Box>
