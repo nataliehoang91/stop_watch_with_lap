@@ -6,11 +6,18 @@ import Status from "../shared/Status";
 import Timer from "../shared/Timer";
 
 const BaseTimerInitial = ({ startTimer }) => (
-  <VStack alignItems="flex-start" spacing="16">
-    <Status status="Initial" color="green.300" />
+  <VStack spacing="12" alignItems="center">
+    <Status status="Initial" color="yellow.300" />
     <Box>
       <Timer time="0" />
-      <Button bgColor="green.500" color="white" onClick={startTimer} mt="16">
+      <Button
+        variant="outline"
+        borderColor="yellow.300"
+        color="yellow.100"
+        px="8"
+        onClick={startTimer}
+        mt="12"
+      >
         Start
       </Button>
     </Box>
