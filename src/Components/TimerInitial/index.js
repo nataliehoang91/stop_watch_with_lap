@@ -10,7 +10,7 @@ const BaseTimerInitial = ({ startTimer }) => (
     <Status status="Initial" color="green.300" />
     <Box>
       <Timer time="0" />
-      <Button bgColor="green.500" color="white" onClick={startTimer}>
+      <Button bgColor="green.500" color="white" onClick={startTimer} mt="16">
         Start
       </Button>
     </Box>
