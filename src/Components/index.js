@@ -48,35 +48,11 @@ const BaseApp = () => {
   };
 
   return (
-    <Container
-      borderWidth={1}
-      borderColor="green.300"
-      pt="24"
-      px="16"
-      maxWidth="800px"
-      minHeight="100vh"
-      textAlign="center"
-      bgColor="gray.800"
-    >
-      <VStack>
-        {!isStarted && <TimerInitial startTimer={startTimer} />}
-        {isStarted && isPaused && (
-          <TimerPaused
-            time={startTime}
-            resetTimer={resetTimer}
-            resumeTimer={resumeTimer}
-          />
-        )}
-        {isStarted && !isPaused && (
-          <TimerRunning
-            time={time}
-            pauseTimer={pauseTimer}
-            bookmarkTime={bookmarkTime}
-          />
-        )}
-        {laps.length > 0 && <LapData laps={laps} />}
-      </VStack>
-    </Container>
+    <>
+    <h1>Hello</h1>
+    <h2>World</h2>
+    <p>This is a Natalie</p>
+    </>
   );
 };
 
