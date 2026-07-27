@@ -48,10 +48,6 @@ const BaseApp = () => {
   };
 
   return (
-    <>
-    <h1>Hello</h1>
-    <h2>World</h2>
-    <p>This is a James and i am the coolest guy to ever exist</p>
    
     <Container
       borderWidth={1}
@@ -82,7 +78,6 @@ const BaseApp = () => {
         {laps.length > 0 && <LapData laps={laps} />}
       </VStack>
     </Container>
-    </>
   );
 };
 
