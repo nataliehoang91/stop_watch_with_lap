@@ -51,7 +51,7 @@ const BaseApp = () => {
     <>
     <h1>Hello</h1>
     <h2>World</h2>
-    <p>This is a Natalie</p>
+    <p>This is a James</p>
     </>
   );
 };
