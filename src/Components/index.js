@@ -40,6 +40,8 @@ const BaseApp = () => {
     bookmarkLap([]);
   };
 
+  console.log("Hello")
+
   const bookmarkTime = () => {
     const bmLaps = addToArray(time, laps);
     bookmarkLap(bmLaps);
